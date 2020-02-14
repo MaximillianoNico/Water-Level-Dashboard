@@ -18,6 +18,13 @@ const v9 = new blynk.VirtualPin(9);
 
 mongoose.connect('mongodb://admin:admin123@ds219459.mlab.com:19459/blynk-db', {useNewUrlParser: true, useUnifiedTopology: true});
 
+
+const setDelay = (ms) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+};
+
 v1.on('write', function(param) {
   const payload = {
     createAt: _get(param, 'createAt', ''),
@@ -25,10 +32,12 @@ v1.on('write', function(param) {
     device: ''
   };
   if (!_isEmpty(param)) {
-
-    Logs.insertMany([payload], (err) => {
-      if(err) console.log('error : ', err);
-    });
+    async function init(){
+      await setDelay(500);
+      Logs.insertMany([payload], (err) => {
+        if(err) console.log('Error (DB) : ', err);
+      });
+    };
   }
   console.log('params : ', param);
 });
@@ -40,3 +49,7 @@ v9.on('read', function() {
 
 APP.use('/rest-user', Auth);
 APP.use('/dashboard', Statistic);
+
+APP.listen(8080, () => {
+  console.log('Server API Running at port 8080');
+});
