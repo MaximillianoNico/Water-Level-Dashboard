@@ -1,23 +1,11 @@
 const mongoose = require('mongoose');
-const Logs = mongoose.model('Logs', {
-    createAt: Date,
-    point: Number,
-    device: String,
-});
-  
-const users = mongoose.model('Users', {
-    email: String,
-    password: String,
-    role: String,
-});
-  
-const roles = mongoose.model('Roles', {
-    name: String,
-    access: Array,
+
+const Schema = mongoose.Schema;
+
+const log = new Schema({
+    createAt: {type: Date},
+    point: {type: Number},
+    device: {type: String},
 });
 
-module.exports = {
-    Logs,
-    users,
-    roles,
-}
+module.exports = mongoose.model('Logs', log, 'Logs');

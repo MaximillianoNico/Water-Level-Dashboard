@@ -1,10 +1,18 @@
-const { users } = require('../../model');
-exports.login = (req, res, next) => {
+const _get = require('lodash/get');
+const users = require('../../model/users');
+const roles = require('../../model/roles');
+
+exports.login = async (req, res, next) => {
     const response = {
-        email: req.email,
-        password: req.password,
+        email: req.body.email,
+        password: req.body.password,
     }
-    users.find(response, (err, docs) => {
-        return docs;
-    });
+    const profile = await users.find(response) || { };
+
+    const role = _get(profile[0], 'role', '');
+    const access = role ? await roles.findById(role) : {};
+
+    const resp = { profile, role: access };
+
+    res.send(resp);
 }
