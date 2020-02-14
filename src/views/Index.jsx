@@ -87,7 +87,7 @@ class Index extends React.Component {
                       <h6 className="text-uppercase text-light ls-1 mb-1">
                         Overview
                       </h6>
-                      <h2 className="text-white mb-0">Sales value</h2>
+                      <h2 className="text-white mb-0">Graph Water Level</h2>
                     </div>
                     <div className="col">
                       <Nav className="justify-content-end" pills>
@@ -132,15 +132,17 @@ class Index extends React.Component {
                 </CardBody>
               </Card>
             </Col>
+
+            {/*  */}
             <Col xl="4">
               <Card className="shadow">
                 <CardHeader className="bg-transparent">
                   <Row className="align-items-center">
                     <div className="col">
                       <h6 className="text-uppercase text-muted ls-1 mb-1">
-                        Performance
+                        Analytic Water Level Monthly
                       </h6>
-                      <h2 className="mb-0">Total orders</h2>
+                      <h2 className="mb-0">Level</h2>
                     </div>
                   </Row>
                 </CardHeader>
@@ -156,7 +158,7 @@ class Index extends React.Component {
               </Card>
             </Col>
           </Row>
-          <Row className="mt-5">
+          {/* <Row className="mt-5">
             <Col className="mb-5 mb-xl-0" xl="8">
               <Card className="shadow">
                 <CardHeader className="border-0">
@@ -343,7 +345,7 @@ class Index extends React.Component {
                 </Table>
               </Card>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </>
     );

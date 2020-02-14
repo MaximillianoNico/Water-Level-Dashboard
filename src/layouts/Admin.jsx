@@ -67,7 +67,8 @@ class Admin extends React.Component {
           routes={routes}
           logo={{
             innerLink: "/admin/index",
-            imgSrc: require("assets/img/brand/argon-react.png"),
+            // imgSrc: require("assets/img/brand/argon-react.png"),
+            imgSrc: "https://image.flaticon.com/icons/png/512/1185/premium/1185915.png",
             imgAlt: "..."
           }}
         />

@@ -129,10 +129,13 @@ class Sidebar extends React.Component {
           {logo ? (
             <NavbarBrand className="pt-0" {...navbarBrandProps}>
               <img
+                width={50}
+                height={50}
                 alt={logo.imgAlt}
                 className="navbar-brand-img"
                 src={logo.imgSrc}
               />
+              <div>IoT UEU</div>
             </NavbarBrand>
           ) : null}
           {/* User */}
@@ -158,7 +161,7 @@ class Sidebar extends React.Component {
                   <span className="avatar avatar-sm rounded-circle">
                     <img
                       alt="..."
-                      src={require("assets/img/theme/team-1-800x800.jpg")}
+                      src="https://img.favpng.com/17/7/13/computer-icons-icon-design-user-png-favpng-uXME5zjHwHTJNs2Kzf5LvgFDR.jpg"
                     />
                   </span>
                 </Media>
