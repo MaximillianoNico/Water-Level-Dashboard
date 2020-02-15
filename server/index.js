@@ -51,6 +51,7 @@ process.on('SIGINT', function() {
 /**
  * Blynk Connection
  */
+const LIMIT_PER_SECOND = 500;
 v1.on('write', function(param) {
   const payload = {
     createAt: _get(param, 'createAt', ''),
@@ -59,7 +60,7 @@ v1.on('write', function(param) {
   };
   if (!_isEmpty(param)) {
     async function init(){
-      await utils.setDelay(500);
+      await utils.setDelay(LIMIT_PER_SECOND);
       Logs.insertMany([payload], (err) => {
         if(err) console.log('Error (DB) : ', err);
       });
