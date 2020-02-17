@@ -73,6 +73,12 @@ v9.on('read', function() {
   v9.write(new Date().getSeconds());
 });
 
+const terminal = new blynk.WidgetTerminal(1);
+terminal.on('write', (data) => {
+  terminal.write('you write : ', data, ' \n');
+  blynk.notify('OK Boomer : ', data);
+})
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
