@@ -4,6 +4,6 @@ const router = express.Router();
 
 
 router.get('/all', Controller.getLogs);
-router.post('/set', Controller.setValue);
+router.get('/set', Controller.setValue);
 
 module.exports = router;
